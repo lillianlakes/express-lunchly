@@ -9,7 +9,7 @@ const Reservation = require("./models/reservation");
 
 const router = new express.Router();
 
-/** Homepage: show list of customers. */
+/** Homepage: show list of customers and allow searches by name. */
 
 router.get("/", async function (req, res, next) {
   let searchName = req.query.name;
@@ -22,7 +22,13 @@ router.get("/", async function (req, res, next) {
   return res.render("customer_list.html", { customers });
 });
 
+/** Homepage: show list of best customers. */
 
+router.get("/best", async function (req, res, next) {
+  let customers = await Customer.bestCustomers();
+
+  return res.render("best_customer_list.html", { customers });
+});
 
 /** Form to add a new customer. */
 
