@@ -21,5 +21,13 @@
     "supertest": "^6.1.4"
   },
   "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lillianlakes/express-lunchly.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lillianlakes/express-lunchly/issues"
+  },
+  "homepage": "https://github.com/lillianlakes/express-lunchly#readme",
   "description": ""
 }
