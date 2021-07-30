@@ -92,15 +92,14 @@ class Customer {
     }
   }
 
+  /** get full name of specific customer */
+
   getFullName() {
     return `${this.firstName} ${this.lastName}`;
   }
-//   `SELECT id,
-//   first_name AS "firstName",
-//   last_name  AS "lastName",
-//   phone,
-//   notes
-// FROM customers
+
+  /** search customers with a term and return an array of instances */
+
   static async searchByName(name){
     const results = await db.query(
       `SELECT id,
@@ -112,7 +111,7 @@ class Customer {
       WHERE CONCAT(first_name, last_name) LIKE $1`, 
       [`%${name}%`]
     )
-    // console.log("#######################", results)
+
     return results.rows.map(c => new Customer(c));
   }
   
