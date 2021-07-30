@@ -16,7 +16,6 @@ router.get("/", async function (req, res, next) {
   let customers;
   if (searchName){
     customers = await Customer.searchByName(searchName);
-    console.log("#############################", customers)
   } else {
     customers = await Customer.all();
   }

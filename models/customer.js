@@ -106,12 +106,11 @@ class Customer {
       `SELECT id,
               first_name AS "firstName",
               last_name  AS "lastName",
-              CONCAT(first_name, last_name) AS "fullName",
               phone,
               notes
       FROM customers
-      WHERE CONCAT(first_name, last_name) LIKE CONCAT('%', $1, '%')`, 
-      [name]
+      WHERE CONCAT(first_name, last_name) LIKE $1`, 
+      [`%${name}%`]
     )
     // console.log("#######################", results)
     return results.rows.map(c => new Customer(c));
